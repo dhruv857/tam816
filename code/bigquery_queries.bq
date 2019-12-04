@@ -1,0 +1,16 @@
+Select * from (SELECT (
+    SELECT ANY_VALUE(name)
+    FROM UNNEST(language)
+
+  ) AS language_name, repo_name FROM `dhruv-816.816.languages`) where language_name in ('Go','Kotlin','TypeScript');
+--   result saved in a table = language_repos
+-- bigquery nested data types and flattening is must to query it
+
+select repo_name, committer.time_sec, subject, message, language_name from `dhruv-816.816.commits`,UNNEST(repo_name) AS repo_name  join `dhruv-816.816.language_repos` USING (repo_name) limit 10;
+-- the above combines repos of specific language with commit timestamp and messages.
+
+-- going in on stack overflow  trial queries
+select tag_name from `dhruv-816.stack.tags` where tag_name in ('Go','Kotlin', 'Typescript');
+select * from `dhruv-816.stack.stackoverflow_posts` where body like '%typescript%' limit 10;
+select * from `dhruv-816.stack.stackoverflow_posts` where body like '%golang%' limit 10;
+select * from `dhruv-816.stack.stackoverflow_posts` where body like '%kotlin%' limit 10;

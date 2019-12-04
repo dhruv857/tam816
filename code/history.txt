@@ -1,0 +1,113 @@
+    1  java -v
+    2  sudo apt-get install default-jdk
+    3  nginx
+    4  sudo apt-get update
+    5  sudo apt-get install nginx
+    6  sudo ufw status
+    7  Processing triggers for ufw (0.36-0ubuntu0.18.04.1) ...systemctl status nginx
+    8  systemctl status nginx
+    9  ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
+   10  wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+   11  echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
+   12  sudo apt-get update
+   13  echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+   14  echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
+   15  echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+   16  sudo apt-get update
+   17  sudo vim /etc/apt/sources.list
+   18  cd /etc/apt/sources.list.d/
+   19  ls
+   20  rm elastic-6.x.list 
+   21  sudo rm elastic-6.x.list 
+   22  sudo rm elastic-7.x.list 
+   23  echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+   24  sudo apt-get update && sudo apt-get install elasticsearch
+   25  sudo nano /etc/elasticsearch/elasticsearch.yml
+   26  sudo systemctl start elasticsearch
+   27  sudo systemctl enable elasticsearch
+   28  curl -X GET "localhost:9200"
+   29  sudo apt-get install kibana
+   30  sudo systemctl enable kibana
+   31  sudo systemctl start kibana
+   32  echo "kibanaadmin:`openssl passwd -apr1`" | sudo tee -a /etc/nginx/htpasswd.users
+   33  sudo nano /etc/nginx/sites-available/40.117.95.160
+   34  sudo ln -s /etc/nginx/sites-available/40.117.95.160 /etc/nginx/sites-enabled/40.117.95.160
+   35  sudo nginx -t
+   36  sudo systemctl restart nginx
+   37  sudo apt-get install logstash
+   38  sudo nano /etc/logstash/conf.d/02-beats-input.conf
+   39  sudo nano /etc/logstash/conf.d/10-syslog-filter.conf
+   40  sudo nano /etc/logstash/conf.d/30-elasticsearch-output.conf
+   41  sudo -u logstash /usr/share/logstash/bin/logstash --path.settings /etc/logstash -t
+   42  sudo systemctl start logstash
+   43  sudo systemctl enable logstash
+   44  sudo apt-get install filebeat
+   45  sudo nano /etc/filebeat/filebeat.yml
+   46  sudo filebeat modules enable system
+   47  sudo filebeat modules list
+   48  sudo filebeat setup --template -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'
+   49  sudo filebeat setup -e -E output.logstash.enabled=false -E output.elasticsearch.hosts=['localhost:9200'] -E setup.kibana.host=localhost:5601
+   50  sudo systemctl start filebeat
+   51  sudo systemctl enable filebeat
+   52  curl -XGET 'http://localhost:9200/filebeat-*/_search?pretty'
+   53  sudo apt-get install jupyterhub
+   54  wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh
+   55  bash Anaconda3-2019.10-Linux-x86_64.sh 
+   56  clear
+   57  exit
+   58  clear
+   59  history
+   60  sudo systemctl stop filebeat
+   61  sudo systemctl status filebeat
+   62  sudo systemctl stop logstash.service 
+   63  sudo systemctl status logstash
+   64  history
+   65  bash Anaconda3-2019.10-Linux-x86_64.sh
+   66  conda init
+   67  eval "$(/home/studentpace/ls/bin/conda shell.YOUR_SHELL_NAME hook)"
+   68  apt-get install htop
+   69  sudo apt-get install htop
+   70  htop
+   71  dfh
+   72  df
+   73  df -h
+   74  sudo resize2fs /dev/sda1
+   75  df -h
+   76  clear
+   77  ls 
+   78  cd ls/
+   79  ls
+   80  cd ..
+   81  nano try.py
+   82  pip3
+   83  pip -v
+   84  pip3 -v
+   85  pip3 install --upgrade google-cloud-bigquery
+   86  python3 try.py 
+   87  vi cred.json
+   88  pwd
+   89  export GOOGLE_APPLICATION_CREDENTIALS="/home/studentpace/cred.json"
+   90  python3 try.py 
+   91  nano try.py 
+   92  python3 try.py 
+   93  nano try.py 
+   94  vi try.py 
+   95  python3 try.py 
+   96  vi try.py 
+   97  python3 try.py 
+   98  vi try.py 
+   99  python3 try.py 
+  100  vi try.py 
+  101  python3 try.py 
+  102  vi try.py 
+  103  pip3 install elasticsearch
+  104  vi try.py 
+  105  python3 try.py 
+  106  vi try.py 
+  107  python3 try.py 
+  108  vi try.py 
+  109  python3 try.py 
+  110  sudo apt-get install tmux
+  111  tmux
+  112  exit
+  113  history >> history.txt
