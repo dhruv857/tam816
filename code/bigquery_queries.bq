@@ -14,3 +14,15 @@ select tag_name from `dhruv-816.stack.tags` where tag_name in ('Go','Kotlin', 'T
 select * from `dhruv-816.stack.stackoverflow_posts` where body like '%typescript%' limit 10;
 select * from `dhruv-816.stack.stackoverflow_posts` where body like '%golang%' limit 10;
 select * from `dhruv-816.stack.stackoverflow_posts` where body like '%kotlin%' limit 10;
+
+
+select count(distinct(t2.repo_name)) from `dhruv-816.816.commits` t1,UNNEST(repo_name) AS repo_name
+        join `dhruv-816.816.languages_repos_11` t2 USING (repo_name) join `dhruv-816.816.licenses` t3 USING (repo_name);
+
+Select * from (SELECT (
+    SELECT ANY_VALUE(name)
+    FROM UNNEST(language)
+
+  ) AS language_name, repo_name FROM `dhruv-816.816.languages`) where language_name in ('C','C++','Clojure','Dockerfile','Erlang','Haskell','Kotlin','Java','Jupyter Notebook','Julia','Objective-C','Objective-C++','Python','Rust','Swift','TypeScript','Vue','YAML','R','Go',' PHP','SQL');
+
+--  C,C++,Clojure,Dockerfile,Erlang,Haskell,Kotlin,Java,Jupyter Notebook,Julia,Objective-C,Objective-C++,Python,Rust,Swift,TypeScript,Vue,YAML,R,Go, PHP,SQL, 
