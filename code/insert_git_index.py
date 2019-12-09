@@ -13,7 +13,7 @@ def query_github():
     for row in results:
         commit = {
                 "repo_name": row[0],
-                "timestamp": row[1],
+                "timestamp": row[1]*1000,
                 "language": row[2],
                 "license": row[3],
                 "year": row[4],
