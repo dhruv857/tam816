@@ -1,10 +1,10 @@
-
 GET _cat/indices?v
 
+GET _ml/anomaly_detectors/_all
 
-delete 816-github
 
 
+DELETE 816-github-1
 PUT 816-github
 { 
   "mappings": {
@@ -46,6 +46,53 @@ PUT 816-github
         "format": "epoch_millis",
         "index":true
       }
+      
+        
+      }}
+}
+
+PUT 816-github-1
+{ 
+  "mappings": {
+      "properties": {
+      "repo_name":{
+        "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+      },
+      "timestamp":{
+        "type":   "date",
+        "format": "epoch_millis",
+        "index":true
+      },
+      "language":{
+        "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+      },
+      "license":{
+        "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+      },
+      "year":{
+        "type":   "integer",
+        "index":true
+      },
+      "month":{
+        "type":   "integer",
+        "index":true
+      }
+      
       
         
       }}

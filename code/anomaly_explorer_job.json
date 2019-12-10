@@ -1,0 +1,46 @@
+{
+    "count" : 1,
+    "jobs" : [
+      {
+        "job_id" : "002",
+        "job_type" : "anomaly_detector",
+        "job_version" : "7.5.0",
+        "description" : "",
+        "create_time" : 1575954464339,
+        "finished_time" : 1575955292017,
+        "analysis_config" : {
+          "bucket_span" : "3h",
+          "detectors" : [
+            {
+              "detector_description" : """count partitionfield="language.keyword"""",
+              "function" : "count",
+              "partition_field_name" : "language.keyword",
+              "detector_index" : 0
+            }
+          ],
+          "influencers" : [
+            "language.keyword",
+            "license.keyword",
+            "year",
+            "month"
+          ]
+        },
+        "analysis_limits" : {
+          "model_memory_limit" : "11mb",
+          "categorization_examples_limit" : 4
+        },
+        "data_description" : {
+          "time_field" : "timestamp",
+          "time_format" : "epoch_ms"
+        },
+        "model_snapshot_retention_days" : 1,
+        "custom_settings" : {
+          "created_by" : "multi-metric-wizard"
+        },
+        "model_snapshot_id" : "1575955290",
+        "results_index_name" : "shared",
+        "allow_lazy_open" : false
+      }
+    ]
+  }
+  
