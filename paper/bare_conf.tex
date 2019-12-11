@@ -380,7 +380,7 @@ Email: dgandhi@pace.edu}
 
 
 % use for special paper notices
-\IEEEspecialpapernotice{(Draft 1)}
+\IEEEspecialpapernotice{(Draft 2)}
 
 
 
@@ -391,7 +391,7 @@ Email: dgandhi@pace.edu}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-Open Source is a gift and effort of the technology community, over years creating and supporting platforms, projects etc. This paper analyzes data from GitHub public repositories available on Google's BigQuery and observes relations, trends and anomalies. To set a baseline, public repositories for 22 different languages were analyzed.
+Open Source is a gift and effort of the technology community, over years creating and supporting platforms, projects etc. This paper analyzes data from GitHub public repositories available on Google's BigQuery and observes relations, trends and anomalies. To set a baseline, public repositories for 22 different languages is analyzed, coorelations, anomalies and trends are studied.  
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -411,47 +411,105 @@ Open Source is a gift and effort of the technology community, over years creatin
 %
 % For peerreview papers, this IEEEtran command inserts a page break and
 % creates the second title. It will be ignored for other modes.
-\IEEEpeerreviewmaketitle
 
 
 
 \section{Introduction}
 % no \IEEEPARstart
-This demo file is intended to serve as a ``starter file''
-for IEEE conference papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8b and later.\cite{dcagh}
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
+% This demo file is intended to serve as a ``starter file''
+% for IEEE conference papers produced under \LaTeX\ using
+% IEEEtran.cls version 1.8b and later.\cite{dcagh}
+% % You must have at least 2 lines in the paragraph with the drop letter
+% % (should never be an issue)
+% I wish you the best of success.
+Open Source allows community from novice to advanced, everyone to collaborate and contribute to projects, platforms, programming languages and framework. Overtime the advancement of languages and platforms; languages from Assembly Language to C to Python to TypeScript and Kotlin, for platforms - from Batch systems to multiprocessing and modern distributed systems. With evolution of services and platforms, IaaS, Saas and PaaS, lead to growth of open-source community and projects over time. 
 
-\hfill mds
- 
-\hfill August 26, 2015
+Various studies have been conducted overtime to study the imapct and growth of these. This study \cite{ghinflu} studies the influence of software by studying GitHub. Evaluation \cite{tam1} and \cite{tamis} analysis observes and introduces Technology Acceptance Model, and develops hypothesis for it. Another such study \cite{taagh} was conducted to study UTAUT (Unified Theory of Acceptance and Use of Technology)\cite{taagh} where a study was done on 78 undergraduate students for acceptance and impact of GitHub on their education. Various studies have been performed on commit messages, coding style, pull requests, coding times and other factors available for the dataset from GitHub \cite{ght}
+
+The trends of open source repositories on GitHub were studied and trends were established and anomalies were studied using ELK stack and BigQuery. Initially, coorelation of trends and data with StackOverflow, a technology Q/A platform was proposed, which however is moved as next steps and future action for this study. 
+
+Methodology section talks about the technology used, dataset and analysis proposed. System and Experiment sections elaborates the system setup used for the study and presents the steps, algorithms and data analytics methods used in the study. Results, dataset snippet, small data frames, and anomalies are discussed in the observation and result section. The paper ends with preliminary conclusion and states the next steps and opportunities for analysis.
 
 
-\section{Literature Review}
-Subsection text here.
+% \section{Literature Review}
+% Subsection text here.
 
 \section{Methodology}
-Subsection text here.
 
-\section{System}
-Subsection text here.
+A public dataset of nearly 3.8 million GitHub open source repositories\cite{gcp} is available on Google Cloud Platform's BigQuery service. This dataset was used in the study. BigQuery is Google's columnar storage service for high performance and high throughput needs. 
 
-\section{Experiment}
-Subsection text here.
+To store and analyze data, ElasticSearch and Kibana were used. ElasticSearch is based on Lucene which is a full-text search based search engine. ElasticSearch has advatange of indexing json documents without reindexing, only adding or updating the new or updated documents. To analyze and visualize, Kibana was used, Kibana is a web based UI for ElasticSearch, which provides analysis and other services for ElasticSearch. 
+
+To perfrom the study, data about repositories for following languages was loaded in ElasticSearch from BigQuery, using Python. The repositories for which the repositories were loaded are highlighted in table \ref{table:1}. The fields that were loaded from the BigQuery dataset are as in table \ref{table:2}. 
+
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{||c | c||} 
+  \hline
+  Language Name & Total Repositories  \\ [0.5ex] 
+  \hline \hline
+  C & 5,451,310 \\  \hline 
+ Python & 878,748 \\  \hline 
+ Go & 734,652 \\  \hline 
+ C++ & 689,476 \\  \hline 
+ Java & 626,740 \\  \hline 
+ Dockerfile & 264,042 \\  \hline 
+ Objective-C & 144,206 \\  \hline 
+ Haskell & 52,430 \\  \hline 
+ Clojure & 43,686 \\  \hline 
+ Rust & 34,519 \\  \hline 
+ R & 29,813 \\  \hline 
+ Jupyter Notebook & 26,891 \\  \hline 
+ Erlang & 25,694 \\  \hline 
+ TypeScript & 14,372 \\  \hline 
+ Julia & 13,529 \\  \hline 
+ Kotlin & 12,915 \\  \hline 
+ Swift & 9,379 \\  \hline 
+ Objective-C++ & 60 \\  \hline 
+ Vue & 38 \\  \hline 
+ SQL & 20 \\ [1ex] 
+  \hline
+  \end{tabular}
+\caption{Languages and Repositories}
+\label{table:1}
+\end{table}
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{||c | c||} 
+  \hline
+  Field Name & Data Type  \\ [0.5ex] 
+  \hline \hline
+ Repository Name & String \\ \hline
+ Language Name & String \\ \hline
+ License Name & String \\ \hline
+ Timestamp of creation & Epoch Time in seconds\\ \hline
+ Year of creation & Integer \\ \hline
+ Month of creation & Integer \\ [0.5ex] 
+  \hline
+  \end{tabular}
+\caption{Schema of data used}
+\label{table:2}
+\end{table}
+
+To analyze, wordcloud, average repositories over time for all languages, different visualizations, timeseries analysis and timeseries anomaly detection and forecast were carried out. The result is described in section V and additional materials supplied with the paper. 
+
+One limitation while conducting the study is limit of availability of data on percentage of language for a particular repository, for example a simple webpage might have HTML and CSS, but it does not have data on what percent of each language is present in a particular repository.
+
+\section{System and Experiment}
+
 
 \section{Observation and Result}
-Subsection text here
+7 images and graphics
+outlier to conference/event etc
 
 \section{Future Work}
-Subsection text here
+more parameters and data from stack and mention of repositories in stack
 
 \section{Conclusion}
-Subsection text here
+pattern, timeseries, relation 
 
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
 
 
 % An example of a floating figure using the graphicx package.

@@ -21,10 +21,49 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{dcagh}
-F.~Chatziasimidis and I.~Stamelos, ``Data collection and analysis of github
-  repositories and users,'' in \emph{2015 6th International Conference on
-  Information, Intelligence, Systems and Applications (IISA)}.\hskip 1em plus
-  0.5em minus 0.4em\relax IEEE, 2015, pp. 1--6.
+\bibitem{ghinflu}
+\BIBentryALTinterwordspacing
+A.~S. Badashian and E.~Stroulia, ``Measuring user influence in github: The
+  million follower fallacy,'' in \emph{Proceedings of the 3rd International
+  Workshop on CrowdSourcing in Software Engineering}, ser. CSI-SE '16.\hskip
+  1em plus 0.5em minus 0.4em\relax New York, NY, USA: ACM, 2016, pp. 15--21.
+  [Online]. Available: \url{http://doi.acm.org/10.1145/2897659.2897663}
+\BIBentrySTDinterwordspacing
+
+\bibitem{tam1}
+\BIBentryALTinterwordspacing
+B.~Szajna, ``Empirical evaluation of the revised technology acceptance model,''
+  \emph{Management Science}, vol.~42, no.~1, pp. 85--92, 1996. [Online].
+  Available: \url{https://doi.org/10.1287/mnsc.42.1.85}
+\BIBentrySTDinterwordspacing
+
+\bibitem{tamis}
+\BIBentryALTinterwordspacing
+W.~R. King and J.~He, ``A meta-analysis of the technology acceptance model,''
+  \emph{Information and Management}, vol.~43, no.~6, pp. 740 -- 755, 2006.
+  [Online]. Available:
+  \url{http://www.sciencedirect.com/science/article/pii/S0378720606000528}
+\BIBentrySTDinterwordspacing
+
+\bibitem{taagh}
+A.~{Čižmešija} and Z.~{Stapić}, ``Github as backbone in software
+  engineering course: Technology acceptance analysis,'' in \emph{2019 42nd
+  International Convention on Information and Communication Technology,
+  Electronics and Microelectronics (MIPRO)}, May 2019, pp. 742--746.
+
+\bibitem{ght}
+\BIBentryALTinterwordspacing
+G.~Gousios, ``The ghtorrent dataset and tool suite,'' in \emph{Proceedings of
+  the 10th Working Conference on Mining Software Repositories}, ser. MSR
+  '13.\hskip 1em plus 0.5em minus 0.4em\relax Piscataway, NJ, USA: IEEE Press,
+  2013, pp. 233--236. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=2487085.2487132}
+\BIBentrySTDinterwordspacing
+
+\bibitem{gcp}
+\BIBentryALTinterwordspacing
+``Github activity data.'' [Online]. Available:
+  \url{https://console.cloud.google.com/marketplace/details/github/github-repos?filter=solution-type:dataset&id=46ee22ab-2ca4-4750-81a7-3ee0f0150dcb}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}
