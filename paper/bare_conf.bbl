@@ -51,6 +51,19 @@ A.~{Čižmešija} and Z.~{Stapić}, ``Github as backbone in software
   International Convention on Information and Communication Technology,
   Electronics and Microelectronics (MIPRO)}, May 2019, pp. 742--746.
 
+\bibitem{dcagh}
+F.~Chatziasimidis and I.~Stamelos, ``Data collection and analysis of github
+  repositories and users,'' in \emph{2015 6th International Conference on
+  Information, Intelligence, Systems and Applications (IISA)}.\hskip 1em plus
+  0.5em minus 0.4em\relax IEEE, 2015, pp. 1--6.
+
+\bibitem{nandi2016anomaly}
+A.~Nandi, A.~Mandal, S.~Atreja, G.~B. Dasgupta, and S.~Bhattacharya, ``Anomaly
+  detection using program control flow graph mining from execution logs,'' in
+  \emph{Proceedings of the 22nd ACM SIGKDD International Conference on
+  Knowledge Discovery and Data Mining}.\hskip 1em plus 0.5em minus 0.4em\relax
+  ACM, 2016, pp. 215--224.
+
 \bibitem{ght}
 \BIBentryALTinterwordspacing
 G.~Gousios, ``The ghtorrent dataset and tool suite,'' in \emph{Proceedings of
@@ -64,6 +77,12 @@ G.~Gousios, ``The ghtorrent dataset and tool suite,'' in \emph{Proceedings of
 \BIBentryALTinterwordspacing
 ``Github activity data.'' [Online]. Available:
   \url{https://console.cloud.google.com/marketplace/details/github/github-repos?filter=solution-type:dataset&id=46ee22ab-2ca4-4750-81a7-3ee0f0150dcb}
+\BIBentrySTDinterwordspacing
+
+\bibitem{elastic}
+\BIBentryALTinterwordspacing
+``Machine learning anomaly detectionedit.'' [Online]. Available:
+  \url{https://www.elastic.co/guide/en/elastic-stack-overview/current/xpack-ml.html}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

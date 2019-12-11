@@ -380,7 +380,7 @@ Email: dgandhi@pace.edu}
 
 
 % use for special paper notices
-\IEEEspecialpapernotice{(Draft 2)}
+% \IEEEspecialpapernotice{(Final Submission)}
 
 
 
@@ -391,7 +391,7 @@ Email: dgandhi@pace.edu}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-Open Source is a gift and effort of the technology community, over years creating and supporting platforms, projects etc. This paper analyzes data from GitHub public repositories available on Google's BigQuery and observes relations, trends and anomalies. To set a baseline, public repositories for 22 different languages is analyzed, coorelations, anomalies and trends are studied.  
+Open Source is a gift and effort of the technology community, over years, creating and supporting platforms, projects, etc. This paper analyzes data from GitHub public repositories available on Google's BigQuery and observes relations, trends and anomalies. To set a baseline, public repositories for 22 different languages are analyzed, correlations, anomalies and trends are studied.  
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -422,13 +422,13 @@ Open Source is a gift and effort of the technology community, over years creatin
 % % You must have at least 2 lines in the paragraph with the drop letter
 % % (should never be an issue)
 % I wish you the best of success.
-Open Source allows community from novice to advanced, everyone to collaborate and contribute to projects, platforms, programming languages and framework. Overtime the advancement of languages and platforms; languages from Assembly Language to C to Python to TypeScript and Kotlin, for platforms - from Batch systems to multiprocessing and modern distributed systems. With evolution of services and platforms, IaaS, Saas and PaaS, lead to growth of open-source community and projects over time. 
+Open Source allows community from novice to advanced, everyone to collaborate and contribute to projects, platforms, programming languages and frameworks. Over time the advancement of languages and platforms; languages from Assembly Language to C to Python to TypeScript and Kotlin, for platforms - from Batch systems to multiprocessing and modern distributed systems. With the evolution of services and platforms, IaaS, Saas and PaaS, lead to the growth of open-source community and projects overtime. 
 
-Various studies have been conducted overtime to study the imapct and growth of these. This study \cite{ghinflu} studies the influence of software by studying GitHub. Evaluation \cite{tam1} and \cite{tamis} analysis observes and introduces Technology Acceptance Model, and develops hypothesis for it. Another such study \cite{taagh} was conducted to study UTAUT (Unified Theory of Acceptance and Use of Technology)\cite{taagh} where a study was done on 78 undergraduate students for acceptance and impact of GitHub on their education. Various studies have been performed on commit messages, coding style, pull requests, coding times and other factors available for the dataset from GitHub \cite{ght}
+Various studies have been conducted overtime to study the impact and growth of these. This study \cite{ghinflu} studies the influence of software by studying GitHub. Evaluation \cite{tam1} and \cite{tamis} analysis observes and introduces Technology Acceptance Model, and develops a hypothesis for it. Another such study \cite{taagh} was conducted to study UTAUT (Unified Theory of Acceptance and Use of Technology)\cite{taagh} where a study was done on 78 undergraduate students for acceptance and impact of GitHub on their education. Various studies \cite{dcagh} \cite{nandi2016anomaly} have been performed on commit messages, coding style, pull requests, coding times and other factors available for the dataset from GitHub \cite{ght}
 
-The trends of open source repositories on GitHub were studied and trends were established and anomalies were studied using ELK stack and BigQuery. Initially, coorelation of trends and data with StackOverflow, a technology Q/A platform was proposed, which however is moved as next steps and future action for this study. 
+The trends of open source repositories on GitHub was studied and trends were established and anomalies were studied using ELK stack and BigQuery. Initially, correlation of trends and data with StackOverflow, a technology Q/A platform was proposed, which however is moved as next steps and future actions for this study. 
 
-Methodology section talks about the technology used, dataset and analysis proposed. System and Experiment sections elaborates the system setup used for the study and presents the steps, algorithms and data analytics methods used in the study. Results, dataset snippet, small data frames, and anomalies are discussed in the observation and result section. The paper ends with preliminary conclusion and states the next steps and opportunities for analysis.
+Methodology section talks about the technology used, dataset and analysis proposed. System and Experiment sections elaborate on the system setup used for the study and present the steps, algorithms, and data analytics methods used in the study. Results, dataset snippets, small data frames, and anomalies are discussed in the observation and result section. The paper ends with a preliminary conclusion and states the next steps and opportunities for analysis.
 
 
 % \section{Literature Review}
@@ -438,9 +438,9 @@ Methodology section talks about the technology used, dataset and analysis propos
 
 A public dataset of nearly 3.8 million GitHub open source repositories\cite{gcp} is available on Google Cloud Platform's BigQuery service. This dataset was used in the study. BigQuery is Google's columnar storage service for high performance and high throughput needs. 
 
-To store and analyze data, ElasticSearch and Kibana were used. ElasticSearch is based on Lucene which is a full-text search based search engine. ElasticSearch has advatange of indexing json documents without reindexing, only adding or updating the new or updated documents. To analyze and visualize, Kibana was used, Kibana is a web based UI for ElasticSearch, which provides analysis and other services for ElasticSearch. 
+To store and analyze data, ElasticSearch and Kibana were used. ElasticSearch is based on Lucene which is a full-text search based search engine. ElasticSearch has advantage of indexing JSON documents without reindexing, only adding or updating the new or updated documents. To analyze and visualize, Kibana was used, Kibana is a web-based UI for ElasticSearch, which provides analysis and other services for ElasticSearch. 
 
-To perfrom the study, data about repositories for following languages was loaded in ElasticSearch from BigQuery, using Python. The repositories for which the repositories were loaded are highlighted in table \ref{table:1}. The fields that were loaded from the BigQuery dataset are as in table \ref{table:2}. 
+To perform the study, data about repositories for following languages was loaded in ElasticSearch from BigQuery, using Python. The repositories for which the repositories were loaded are highlighted in table \ref{table:1}. The fields that were loaded from the BigQuery dataset are as in table \ref{table:2}. 
 
 
 \begin{table}[h!]
@@ -493,23 +493,118 @@ To perfrom the study, data about repositories for following languages was loaded
 \label{table:2}
 \end{table}
 
-To analyze, wordcloud, average repositories over time for all languages, different visualizations, timeseries analysis and timeseries anomaly detection and forecast were carried out. The result is described in section V and additional materials supplied with the paper. 
+To analyze, word cloud, average repositories overtime for all languages, different visualizations, time-series analysis and timeseries anomaly detection and forecast were carried out. The result is described in section V and additional materials supplied with the paper. 
 
 One limitation while conducting the study is limit of availability of data on percentage of language for a particular repository, for example a simple webpage might have HTML and CSS, but it does not have data on what percent of each language is present in a particular repository.
 
 \section{System and Experiment}
 
+The project was first setup to load data into Azure cloud, but due to network limit because of the tier limit and different networks/datacenters, the data load was taking a long time. To speed up data loading, virtual machines that hosted ELK stack or ElasticSearch, LogStash and Kibana, was set up on Google Cloud Platform's Virtual Machine service. 
+
+As laid out in the diagram, the data for languages of different public repositories as specified in table \ref{table:1} was loaded into BigQuery. This was done to take subset of data and not cross processing threshold of the GCP. Then using BigQuery's API and Python script, data as laid out in table \ref{table:2} was loaded into ElasticSearch's index. All the fields were set to searchable to enable them for analysis. This helped in analyzing on different factors. Once the data was loaded, different visualizations were made as seen in section IV, and a time-series anomaly machine learning \cite{elastic} job was started using Kibana for ElasticSearch. The analysis was done for repositories from 2009 to 2019. All the services, ElasticSearch, Kibana and Python scripts are currently hosted on 2.5GiB RAM, 4 vCPUs virtual instance on GCP.
+
+After anomalies were highlighted, causes were searched on internet for possible causes. For three instances, for three different languages, they were linked with a conference or a major version release.  All the analysis, the code used and the reports obtained are stored on GitHub.
+
+\floatstyle{boxed}
+\restylefloat{figure}
+\begin{figure*}[ht]
+  \centering
+  \includegraphics[width=16cm]{tsanomaly.png}
+  \caption{Language Word Cloud by frequency}
+  \label{fig:anomaly}
+\end{figure*}
+
+\floatstyle{boxed}
+\restylefloat{figure}
+\begin{figure*}[ht]
+  \centering
+  \includegraphics[width=16cm]{golaunchyear.png}
+  \caption{Go language launch year stats}
+  \label{fig:gyl}
+\end{figure*}
+% \clearpage
 
 \section{Observation and Result}
-7 images and graphics
-outlier to conference/event etc
+
+Figure \ref{fig:anomaly} shows anomalies of 6 languages in red, when compared to news or significant event, it maps around the month of occurence of that event. For instance, Kotlin has a high spike, which when searched online, maps to beginning of involvement of a company called Instil, which consults and trains for Kotlin. Another example is for Python, we see a surge around 2014, a spike is observed which can be related to the announcement of Python 2.7 support end date which is end of 2020.
+
+Figure \ref{fig:gyl} shows stats from 2015, which can be mapped to GopherCon in July, which is the reason for spiked activity in 7th month or July in 2015. 
+
+Basic statistics about the data used in analyzing all the repositories is presented in table \ref{table:1} and \ref{table:2}. Figure \ref{fig:torl} shows the timestamp range of all the repositories loaded. 
+
+\floatstyle{boxed}
+\restylefloat{figure}
+\begin{figure*}[ht]
+  \centering
+  \includegraphics[width=16cm]{actualvspredictedR.png}
+  \caption{R forecast and anomaly prediction}
+  \label{fig:rfc}
+\end{figure*}
+
+\floatstyle{boxed}
+\restylefloat{figure}
+\begin{figure*}[ht]
+  \centering
+  \includegraphics[width=16cm]{anomalygo.png}
+  \caption{Go forecast and anomaly prediction}
+  \label{fig:gfc}
+\end{figure*}
+
+\floatstyle{plain}
+\restylefloat{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=8cm]{tsteposdata.png}
+  \caption{Timestamp of repositories loaded}
+  \label{fig:torl}
+\end{figure}
+
+Figure \ref{fig:lang} and figure \ref{fig:licenses} shows word cloud for number of repositories by language frequency and licenses frequency. 
+
+\floatstyle{plain}
+\restylefloat{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=8cm]{lang.png}
+  \caption{Wordcloud of repositories loaded}
+  \label{fig:lang}
+\end{figure}
+
+\floatstyle{plain}
+\restylefloat{figure}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=8cm]{lic.png}
+  \caption{Wordcloud of repositories loaded}
+  \label{fig:licenses}
+\end{figure}
+
+Figure \ref{fig:mlj} shows the stats for anomaly machine learning job created and processed on elasticsearch. This job detected the results shows in \ref{fig:anomaly}. This job as stated earlier, was expanded to forecast, on multiple different languages and different time periods, the limit being 365 days due to memory limit for JVM and the virtual machine on GCP. This job predicted the trend in number of repositories over time, absolute accuracy was not calculated. However, by visual observation, it is closely following the historical trend for the examined languages. 
+
+Figure \ref{fig:rfc} shows running R language single time-series anomaly detection job which was scheduled to predict the trend over a period of 5 years, and from the graph, blue being actual and yellow being forecasted, the trend follows similar line. Figure \ref{fig:gfc} show the same for Go language, however, this was on a shorter period of time, due to memory and resource restrictions on GCP's virtual instance. 
+
+\floatstyle{plain}
+\restylefloat{figure}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=8cm]{mljob.png}
+  \caption{Anomaly machine learning job}
+  \label{fig:mlj}
+\end{figure}
+
 
 \section{Future Work}
+Due to limited time and resources, full analysis and StackOverflow's data loading and its analysis was not performed. Further extension of this research can be performed using data for following points:
+\begin{itemize}
+  \item StackOverflow data for language questions and answers, its time and sentiment analysis.
+  \item GitHub commit messages, time, releases, pull requests, code comments and forking analysis.
+  \item Correlating both datasets with mentions of repositories, issues and links.
+  \item Getting or creating a dataset for significant events for a subset of programming language.
+\end{itemize}
 more parameters and data from stack and mention of repositories in stack
 
 \section{Conclusion}
-pattern, timeseries, relation 
-
+Throughout the paper, a pattern and trend has been observed for languages and how different significant event impact quantity of open source GitHub repositories. The time-series analysis helps to confirm the same. An algorithm to correlate trend with significant event occurence has not been devised. The anomalies, however, help detect outliers and relate them to a version release, support announcement or end of support announcement. 
 
 
 % An example of a floating figure using the graphicx package.
@@ -614,12 +709,7 @@ pattern, timeseries, relation
 % use section* for acknowledgment
 \section*{Acknowledgment}
 
-
-The authors would like to thank...
-
-
-
-
+I would like to thank Dr. Charles Tappert, Dr. Ronald Frank and Professor Stephan Barabasi for mentoring and guidance. I would also like to thank the Elastic.co team to extend my license twice which allowed me to use all their features and perform analysis. 
 
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
@@ -644,5 +734,4 @@ The authors would like to thank...
 
 % that's all folks
 \end{document}
-
 
